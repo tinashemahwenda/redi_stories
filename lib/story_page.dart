@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:redi_stories/services/api_services.dart';
+import 'package:shadcn_ui/shadcn_ui.dart';
 
 class StoryPage extends StatefulWidget {
   const StoryPage({super.key});
@@ -31,6 +32,13 @@ class _StoryPageState extends State<StoryPage> {
 
   @override
   Widget build(BuildContext context) {
-    return const Placeholder();
+    return Scaffold(
+      body: Center(
+        child: Text(
+          'Stories App',
+          style: ShadTheme.of(context).textTheme.h1Large,
+        ),
+      ),
+    );
   }
 }
