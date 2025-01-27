@@ -1,4 +1,6 @@
-class DeepSeekConstants {
-  static const String apiKey = 'sk-ac68cbe7fc2c407bb80da6ef3666cea8';
-  static const String apiUrl = 'https://api.deepseek.com/v1/generate';
+class GeminiConstants {
+  static const String apiKey =
+      'AQ.Ab8RN6KwsN1xqjBONNn89PosmqUXbnEixzN3I3Dj1uilElC2LA';
+  static const String apiUrl =
+      'https://generativelanguage.googleapis.com/v1beta/models/gemini-pro:generateContent';
 }

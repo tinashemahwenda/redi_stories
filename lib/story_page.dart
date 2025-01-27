@@ -16,6 +16,7 @@ class _StoryPageState extends State<StoryPage> {
   @override
   void initState() {
     super.initState();
+    loadStory();
   }
 
   Future<void> loadStory() async {
@@ -23,10 +24,14 @@ class _StoryPageState extends State<StoryPage> {
       final generateStory = await ApiServices.generateStory();
       setState(() {
         story = generateStory;
+        isLoading = false;
         print(story);
       });
     } catch (e) {
-      story = 'Failed to load story';
+      setState(() {
+        print('$e');
+        isLoading = false;
+      });
     }
   }
 
@@ -34,10 +39,12 @@ class _StoryPageState extends State<StoryPage> {
   Widget build(BuildContext context) {
     return Scaffold(
       body: Center(
-        child: Text(
-          'Stories App',
-          style: ShadTheme.of(context).textTheme.h1Large,
-        ),
+        child: isLoading
+            ? CircularProgressIndicator()
+            : Text(
+                story,
+                style: ShadTheme.of(context).textTheme.h1Large,
+              ),
       ),
     );
   }
